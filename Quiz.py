@@ -1,113 +1,113 @@
 import time
 
-def quiz_game():
-    score = 0
+print("\n********************\n")
+print("Welcome to the Quiz!")
+print("\n********************\n")
 
-    questions = [
-        {
-            "question": "What is the capital of Bangladesh?",
-            "options": ["A. Chittagong", "B. Dhaka", "C. Khulna", "D. Rajshahi"],
-            "answer": "B"
-        },
-        {
-            "question": "Which language is used for web development?",
-            "options": ["A. Python", "B. HTML", "C. Java", "D. All of these"],
-            "answer": "D"
-        },
-        {
-            "question": "What is 5 + 3?",
-            "options": ["A. 5", "B. 8", "C. 10", "D. 15"],
-            "answer": "B"
-        }
-    ]
+score = 0
+start_time = time.time()        # Record start time
+time_limit = 120             # 2 minutes in seconds
 
-    while True:
-        print("\n=== Quiz Menu ===")
-        print("1. Play Quiz")
-        print("2. Add Question")
-        print("3. Remove Question")
-        print("4. Show Questions")
-        print("5. Exit")
+def check_time():
+    """End quiz if 2 minutes have passed."""
+    if time.time() - start_time > time_limit:
+        print("\nTime's up! Quiz ended.")
+        print("Your score is:", score, "/ 10")
+        exit()
 
-        choice = input("Enter your choice (1-5): ")
+# Question 1
+check_time()
+q1 = input("1. Who created Python?\nA) James Gosling\nB) Guido van Rossum\nC) Md Ratul Hasan Abid\nD) Showmick Roy Chowdhury\n\nThe answer is: ")
+if q1.upper() == "B":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is Guido van Rossum.\n")
 
-        if choice == "1":
-            # ---------- Play Quiz ----------
-            score = 0
-            total_time = 30  # total quiz time in seconds
-            start_time = time.time()
+# Question 2
+check_time()
+q2 = input("2. Abstraction in computational thinking is used to:\nA) Focus only on the important details of a problem\nB) Break the problem into steps\nC) Remember all details of the problem\nD) Write pseudocode\n\nThe answer is: ")
+if q2.upper() == "A":
+    print("Correct.\n")
+    score += 1
+else:
+    print("Your answer is wrong.\nThe correct answer is Focus only on the important details of a problem\n")
+ 
+# Question 3
+check_time()
+q3 = input("3. What is the output of print(type([]))?\nA) <class 'tuple'>\nB) <class 'set'>\nC) <class 'dict'>\nD) <class 'list'>\n\nThe answer is: ")
+if q3.upper() == "D":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is <class 'list'>\n")
+ 
+# Question 4
+check_time()
+q4 = input("4. Which keyword is used to create a function in Python?\nA) func\nB) function\nC) def\nD) lambda\n\nThe answer is: ")
+if q4.upper() == "C":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is def\n")
+ 
+# Question 5
+check_time()
+q5 = input("5. Decomposition in computational thinking means:\nA) Making a problem bigger\nB) Breaking down a complex problem into smaller parts\nC) Ignoring unnecessary details\nD) Writing the final solution directly\n\nThe answer is: ")
+if q5.upper() == "B":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is Breaking down a complex problem into smaller parts\n")
+ 
+# Question 6
+check_time()
+q6 = input("6. Which operator is used for floor division?\nA) //\nB) /\nC) %\nD) **\n\nThe answer is: ")
+if q6.upper() == "A":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is //\n")
+ 
+# Question 7
+check_time()
+q7 = input("7. A company uses computational thinking to analyze customer behavior. If they group customers into categories based on repeated purchase patterns, they are applying:\nA) Abstraction\nB) Decomposition\nC) Pattern recognition\nD) Algorithm design\n\nThe answer is: ")
+if q7.upper() == "C":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is Pattern recognition\n")
+ 
+# Question 8
+check_time()
+q8 = input("8. Which keyword is used to exit a loop prematurely in Python?\nA) stop\nB) exit\nC) end\nD) break\n\nThe answer is: ")
+if q8.upper() == "D":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is break\n")
+ 
+# Question 9
+check_time()
+q9 = input("9. Which of the following loop(s) always executes at least once in Python?\nA) for loop\nB) while loop\nC) Both A and B\nD) None of these\n\nThe answer is: ")
+if q9.upper() == "D":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is None of these\n")
 
-            for q in questions:
-                elapsed = int(time.time() - start_time)
-                remaining_time = total_time - elapsed
+# Question 10
+check_time()
+q10 = input("10. Which keyword is used to skip the current iteration in a loop?\nA) continue\nB) skip\nC) pass\nD) jump\n\nThe answer is: ")
+if q10.upper() == "A":
+    print("Correct.\n")
+    score += 1
+else:
+    print("\nYour answer is wrong.\nThe correct answer is continue\n")
 
-                if remaining_time <= 0:
-                    print("\nTime's up!")
-                    break
-
-                print(f"\nTime Remaining: {remaining_time} seconds")
-                print(q["question"])
-                for option in q["options"]:
-                    print(option)
-
-                user_answer = input("Your answer (A/B/C/D): ").upper()
-                if user_answer == q["answer"]:
-                    print("Correct!")
-                    score += 1
-                else:
-                    print(f"Wrong! Correct answer is {q['answer']}")
-
-            print(f"\nQuiz Finished! Your Score: {score}/{len(questions)}")
-
-        elif choice == "2":
-            # ---------- Add Question ----------
-            question = input("Enter the question: ")
-            options = []
-            options.append("A. " + input("Option A: "))
-            options.append("B. " + input("Option B: "))
-            options.append("C. " + input("Option C: "))
-            options.append("D. " + input("Option D: "))
-            answer = input("Correct answer (A/B/C/D): ").upper()
-
-            questions.append({
-                "question": question,
-                "options": options,
-                "answer": answer
-            })
-            print("Question added successfully!")
-
-        elif choice == "3":
-            # ---------- Remove Question ----------
-            if not questions:
-                print("No questions to remove!")
-                continue
-
-            print("\nCurrent Questions:")
-            for i, q in enumerate(questions):
-                print(f"{i + 1}. {q['question']}")
-
-            index = int(input("Enter question number to remove: ")) - 1
-            if 0 <= index < len(questions):
-                removed = questions.pop(index)
-                print(f"Removed question: {removed['question']}")
-            else:
-                print("Invalid number!")
-
-        elif choice == "4":
-            # ---------- Show Questions ----------
-            if not questions:
-                print("No questions available!")
-            else:
-                print("\nAll Questions:")
-                for i, q in enumerate(questions):
-                    print(f"{i + 1}. {q['question']} (Answer: {q['answer']})")
-
-        elif choice == "5":
-            print("Exiting Quiz. Goodbye!")
-            break
-
-        else:
-            print("Invalid choice! Please enter 1-5.")
+# Final Score
+print("\n********************\n")
+print("Your score is:", score ,"/ 10")
+print("\n********************\n")
 
 
-quiz_game()
